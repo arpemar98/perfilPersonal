@@ -1,0 +1,7 @@
+{
+  "name": "perfilPersonal",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
