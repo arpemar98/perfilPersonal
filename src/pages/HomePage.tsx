@@ -1,31 +1,139 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCol, IonContent, IonFab, IonFabButton, IonFabList, IonGrid, IonHeader, IonIcon, IonMenuButton, IonPage, IonRow, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
+import { add, globe } from 'ionicons/icons';
 import { useParams } from 'react-router';
-import ExploreContainer from '../components/ExploreContainer';
+import FavComponent from '../components/FavComponent';
 import HeaderComponent from '../components/HeaderComponent';
-import './Page.css';
+import MenuComponent from '../components/Menu/MenuComponent';
+import ProfileSectionComponent from '../components/sections/ProfileSectionComponent';
+import './HomePage.css';
 
 const HomePage: React.FC = () => {
 
   return (
-    <IonPage>
+    <IonSplitPane contentId='main-content'>
 
-      <HeaderComponent titulo="Inicio"/>
+      <MenuComponent contentId="main-content" />
 
-      {/* <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonMenuButton />
-          </IonButtons>
-          <IonTitle>Home</IonTitle>
-        </IonToolbar>
-      </IonHeader> */}
+      <IonPage id="main-content">
 
-      <IonContent fullscreen>
-Jeloud
+        <HeaderComponent titulo="Inicio"/>
 
-      </IonContent>
+        <IonContent >
 
-    </IonPage>
+          <IonGrid>
+
+            <ProfileSectionComponent id="option_presentacion" />
+
+            <IonRow id='option_formacion'>
+
+              <IonCol size='12' >
+                
+                <IonCard>
+
+                  <IonCardHeader>
+                    <h3>Formación</h3>
+                  </IonCardHeader>
+
+                  <IonCardContent>
+                    Formación---
+                  </IonCardContent>
+
+                </IonCard>
+
+              </IonCol>
+              
+            </IonRow>
+
+            <IonRow id='option_experiencia'>
+
+              <IonCol size='12' >
+                
+                <IonCard>
+
+                  <IonCardHeader>
+                    <h3>Experiencia</h3>
+                  </IonCardHeader>
+
+                  <IonCardContent>
+                    Formación---
+                  </IonCardContent>
+
+                </IonCard>
+
+              </IonCol>
+              
+            </IonRow>
+
+            <IonRow id='option_habilidades'>
+
+              <IonCol size='12' >
+                
+                <IonCard>
+
+                  <IonCardHeader>
+                    <h3>Habilidades</h3>
+                  </IonCardHeader>
+
+                  <IonCardContent>
+                    Formación---
+                  </IonCardContent>
+
+                </IonCard>
+
+              </IonCol>
+              
+            </IonRow>
+
+            <IonRow id='option_certificados'>
+
+              <IonCol size='12' >
+                
+                <IonCard>
+
+                  <IonCardHeader>
+                    <h3>Certificados</h3>
+                  </IonCardHeader>
+
+                  <IonCardContent>
+                    Formación---
+                  </IonCardContent>
+
+                </IonCard>
+
+              </IonCol>
+              
+            </IonRow>
+
+            <IonRow id='option_contacto'>
+
+              <IonCol size='12' >
+                
+                <IonCard>
+
+                  <IonCardHeader>
+                    <h3>Contacto</h3>
+                  </IonCardHeader>
+
+                  <IonCardContent>
+                    Formación---
+                  </IonCardContent>
+
+                </IonCard>
+
+              </IonCol>
+              
+            </IonRow>
+
+          </IonGrid>
+
+          <FavComponent/>
+        
+
+        </IonContent>
+
+      </IonPage>
+      
+    </IonSplitPane>
   );
 };
 
