@@ -1,7 +1,8 @@
-import { IonCard, IonCardContent, IonCol, IonImg, IonRow, IonTitle } from "@ionic/react";
+import { IonCard, IonCardContent, IonCol, IonIcon, IonImg, IonItem, IonLabel, IonRow, IonTitle } from "@ionic/react";
+import { school } from 'ionicons/icons';
 import { useSelector, useDispatch } from 'react-redux'
 
-export default function ProfileSectionComponent({ id = ""}){
+export default function FormationSectionComponent({ id = ""}){
 
     const languageReducer:string    = useSelector( ( state:any ) => { return state.languageRedux} );            // Reducer de idioma
 
@@ -10,29 +11,43 @@ export default function ProfileSectionComponent({ id = ""}){
         'ES'  : 'The Last of Us es un videojuego de terror y de acción y aventura desarrollado por la compañía estadounidense Naughty Dog y distribuido por Sony Computer Entertainment para la consola PlayStation 3 en 2013. La trama describe las vivencias de Joel y Ellie, un par de supervivientes de una pandemia en Estados Unidos que provoca la mutación de los seres humanos en criaturas caníbales.'
     };
 
+    const colleges = [
+        {
+            label : {
+                'EN'  : 'Escuela 1',
+                'ES'  : 'Escuela 1'        
+            },
+            url: "",
+            description : ""
+        },
+        {
+            label : {
+                'EN'  : 'Escuela 2',
+                'ES'  : 'Escuela 2'        
+            },
+            url: "",
+            description : ""
+        }
+    ];
+
     return (
         <>
-            <IonRow id={ id }>
+            <IonRow id={ id } >
                 <IonCol size='12'>
-                    <IonTitle>{ languageReducer == "ES" ? "Perfil" : "Profile" }</IonTitle>
+                    <IonItem lines="none" color="light">
+                        <IonIcon icon={school} slot="start"/>
+                        <IonLabel>
+                            <h2>
+                            { languageReducer == "ES" ? "Formación" : "Formation" }
+                            </h2>
+                        </IonLabel>
+                    </IonItem>
                 </IonCol>
             </IonRow>
 
             <IonRow >
 
-                <IonCol size='12' sizeMd='4'>
-
-                    <IonCard>
-
-                        <IonCardContent>
-                            <IonImg src="https://docs-demo.ionic.io/assets/madison.jpg" alt="The Wisconsin State Capitol building in Madison, WI at night" />
-                        </IonCardContent>
-
-                    </IonCard>
-
-                </IonCol>
-
-                <IonCol size='12' sizeMd='8'>
+                <IonCol size='12' >
                 
                     <IonCard>
 
