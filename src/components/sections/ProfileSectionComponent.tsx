@@ -1,4 +1,5 @@
-import { IonCard, IonCardContent, IonCol, IonImg, IonRow, IonTitle } from "@ionic/react";
+import { IonCard, IonCardContent, IonCol, IonIcon, IonImg, IonItem, IonLabel, IonRow, IonTitle } from "@ionic/react";
+import { person } from "ionicons/icons";
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function ProfileSectionComponent({ id = ""}){
@@ -12,9 +13,16 @@ export default function ProfileSectionComponent({ id = ""}){
 
     return (
         <>
-            <IonRow id={ id }>
+            <IonRow id={ id } >
                 <IonCol size='12'>
-                    <IonTitle>{ languageReducer == "ES" ? "Perfil" : "Profile" }</IonTitle>
+                    <IonItem lines="none" color="light">
+                        <IonIcon icon={person} slot="start"/>
+                        <IonLabel>
+                            <h2>
+                            { languageReducer == "ES" ? "Perfil" : "Profile" }
+                            </h2>
+                        </IonLabel>
+                    </IonItem>
                 </IonCol>
             </IonRow>
 

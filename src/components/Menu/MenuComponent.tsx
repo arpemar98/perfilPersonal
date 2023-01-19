@@ -4,85 +4,34 @@ import { analytics, archiveOutline, archiveSharp, bookmarkOutline, call, extensi
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react';
 import './Menu.css';
+import { getProfileImg, getProfileLinksArray, getProfileName, getSectionsArray } from './MenuData';
 
-const nombre = "";
-
-const linksArray = [
-  {
-    icon  : logoLinkedin,
-    url   : ""
-  },
-  {
-    icon  : logoStackoverflow,
-    url   : ""
-  },
-  {
-    icon  : logoGithub,
-    url   : ""
-  },
-  
-];
-
-const appPages = [
-  {
-    label : {
-      'EN'  : 'Profile',
-      'ES'  : 'Perfil'
-    },
-    id    : 'option_presentacion',
-    icon  : person,
-  },
-  {
-    label : {
-      'EN': 'Formation',
-      'ES': 'Formación'
-    },
-    id    : 'option_formacion',
-    icon  : school,
-  },
-  {
-    label : {
-      'EN': 'Experience',
-      'ES': 'Experiencia'
-    },
-    id    : 'option_experiencia',
-    icon  : analytics,
-  },
-  {
-    label : {
-      'EN': 'Skills',
-      'ES': 'Habilidades'
-    },
-    id    : 'option_habilidades',
-    icon  : extensionPuzzle,
-  },
-  {
-    label : {
-      'EN': 'Certificates',
-      'ES': 'Certificados'
-    },
-    id    : 'option_certificados',
-    icon  : ribbon,
-  },
-  {
-    label : {
-      'EN': 'Contact',
-      'ES': 'Contacto'
-    },
-    id    : 'option_contacto',
-    icon  : call,
-  }
-];
 
 
 const MenuComponent = ({ contentId="" }) => {
 
-  const languageReducer:string    = useSelector( ( state:any ) => { return state.languageRedux} );            // Reducer de idioma
-  const darkThemeReducer:boolean  = useSelector( ( state:any ) => { return state.darkThemeRedux} );            // Reducer de tema
+  const languageReducer   :any      = useSelector( ( state:any ) => { return state.languageRedux} );            // Reducer de sesión
+  const darkThemeReducer  :boolean  = useSelector( ( state:any ) => { return state.darkThemeRedux} );            // Reducer de tema
 
   const dispatch = useDispatch();
 
+  //INIT**************************** CONFIGURACIÓN ****************************
+
+    const imagenPerfil    = getProfileImg();
+
+    const nombrePerfil    = getProfileName();
+
+    const linksArray      = getProfileLinksArray();
+
+    const seccionesArray  = getSectionsArray( languageReducer );
+
+//END **************************** CONFIGURACIÓN ****************************
+
   const [ valorTemaOscuro, setValorTemaOscuro ] = useState( darkThemeReducer );
+
+
+
+
 
   useEffect(() => {
     
@@ -99,7 +48,13 @@ const MenuComponent = ({ contentId="" }) => {
   
 
 
-  function desplazar( id:string ){
+
+
+  /**
+   * Función para moverse hacia algún elemento por el id
+   * @param id {id del elemento}
+   */
+  function scrollTo( id:string ){
     
     const element = document.getElementById( id );
 
@@ -113,18 +68,18 @@ const MenuComponent = ({ contentId="" }) => {
 
   return (
   
-    <IonMenu contentId={contentId} side='start' >
+    <IonMenu contentId={contentId} side='start' style={{ border: "none"}} >
 
       <IonContent color="light">
 
         <div>
           <IonAvatar style={{ margin: "auto", width: "64px", height: "64px" }}>
-            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            <img alt="Silhouette of a person's head" src={imagenPerfil} />
           </IonAvatar>
         </div>
 
         <IonItem className='ion-text-center' color="light" lines="none">
-          <IonLabel>Nombre</IonLabel>
+          <IonLabel>{nombrePerfil}</IonLabel>
         </IonItem>
 
         <div className='ion-text-center'>
@@ -132,7 +87,7 @@ const MenuComponent = ({ contentId="" }) => {
             linksArray.map( (item, index) => {
               
               return (
-                <IonChip color="primary" outline onClick={ () => window.open( item.url , '_blank', 'noopener,noreferrer' ) }>
+                <IonChip key={index} color="primary" outline onClick={ () => window.open( item.url , '_blank', 'noopener,noreferrer' ) }>
                   <IonIcon icon={item.icon} style={{  margin: "0px" }} />
                 </IonChip>
               );
@@ -143,16 +98,15 @@ const MenuComponent = ({ contentId="" }) => {
 
 
         {
-          appPages.map((appPage, index) => {
-
-            let option = languageReducer == "ES" ? appPage.label.ES : appPage.label.EN;
+          seccionesArray.map( ( item, index ) => {
             
             return (
-                <IonItem key={index} lines="none" detail={false} button color="light" onClick={() => desplazar( appPage.id ) }>
-                  <IonIcon slot="start" icon={appPage.icon} />
-                  <IonLabel>{ option }</IonLabel>
+                <IonItem key={index} lines="none" detail={false} button color="light" onClick={() => scrollTo( item.id ) }>
+                  <IonIcon slot="start" icon={item.icon} />
+                  <IonLabel>{ item.label }</IonLabel>
                 </IonItem>
             );
+
           })
         }
 
@@ -167,6 +121,7 @@ const MenuComponent = ({ contentId="" }) => {
     </IonMenu>
 
   );
+
 };
 
 export default MenuComponent;

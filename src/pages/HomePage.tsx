@@ -1,17 +1,22 @@
 import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCol, IonContent, IonFab, IonFabButton, IonFabList, IonGrid, IonHeader, IonIcon, IonMenuButton, IonPage, IonRow, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
 import { add, globe } from 'ionicons/icons';
 import { useParams } from 'react-router';
-import FavComponent from '../components/FavComponent';
+import FavComponent from '../components/Fav/FavLanguageComponent';
 import HeaderComponent from '../components/HeaderComponent';
 import MenuComponent from '../components/Menu/MenuComponent';
-import FormationSectionComponent from '../components/sections/FormationSectionComponent';
-import ProfileSectionComponent from '../components/sections/ProfileSectionComponent';
+
+import ExperienceSectionComponent from '../components/Sections/ExperienceSection/ExperienceSectionComponent';
+
+import FormationSectionComponent from '../components/Sections/FormationSection/FormationSectionComponent';
+import ProfileSectionComponent from '../components/Sections/ProfileSectionComponent';
+import SkillsSectionComponent from '../components/Sections/SkillsSection/SkillsSectionComponent';
+
 import './HomePage.css';
 
 const HomePage: React.FC = () => {
 
   return (
-    <IonSplitPane contentId='main-content'>
+    <IonSplitPane contentId='main-content' >
 
       <MenuComponent contentId="main-content" />
 
@@ -23,53 +28,18 @@ const HomePage: React.FC = () => {
 
           <IonGrid>
 
-            <ProfileSectionComponent id="option_presentacion" />
+            <ProfileSectionComponent id="section_profile" />
 
-            <FormationSectionComponent id="option_formation"></FormationSectionComponent>
+            <FormationSectionComponent id="section_formation"/>
 
+            <ExperienceSectionComponent id="section_experience" />
+
+            <SkillsSectionComponent id='section_skills'/>
+          
+            
             
 
-            <IonRow id='option_experiencia'>
-
-              <IonCol size='12' >
-                
-                <IonCard>
-
-                  <IonCardHeader>
-                    <h3>Experiencia</h3>
-                  </IonCardHeader>
-
-                  <IonCardContent>
-                    Formación---
-                  </IonCardContent>
-
-                </IonCard>
-
-              </IonCol>
-              
-            </IonRow>
-
-            <IonRow id='option_habilidades'>
-
-              <IonCol size='12' >
-                
-                <IonCard>
-
-                  <IonCardHeader>
-                    <h3>Habilidades</h3>
-                  </IonCardHeader>
-
-                  <IonCardContent>
-                    Formación---
-                  </IonCardContent>
-
-                </IonCard>
-
-              </IonCol>
-              
-            </IonRow>
-
-            <IonRow id='option_certificados'>
+            <IonRow id='section_certificates'>
 
               <IonCol size='12' >
                 
@@ -89,7 +59,7 @@ const HomePage: React.FC = () => {
               
             </IonRow>
 
-            <IonRow id='option_contacto'>
+            <IonRow id='section_contact'>
 
               <IonCol size='12' >
                 

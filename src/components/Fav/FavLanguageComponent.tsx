@@ -4,7 +4,7 @@ import { archiveOutline, archiveSharp, book, bookmarkOutline, globe, heartOutlin
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react';
 
-const FavComponent = ( ) => {
+const FavLanguageComponent = ( ) => {
 
   const languageReducer:any     = useSelector( ( state:any ) => { return state.languageRedux} );            // Reducer de sesión
   const dispatch                = useDispatch();
@@ -44,4 +44,4 @@ const FavComponent = ( ) => {
   );
 };
 
-export default FavComponent;
+export default FavLanguageComponent;
