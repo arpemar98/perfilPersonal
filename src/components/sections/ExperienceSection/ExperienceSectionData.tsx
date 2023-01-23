@@ -52,7 +52,6 @@ export function getExperienceArray( language:string ){
     
             tools       : [
                 {
-                    icon    : logoHtml5,
                     label   : "Html",
                     color   : "#E44D26"
                 },

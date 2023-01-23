@@ -12,72 +12,77 @@ export default function FormationSectionComponent({ id = ""}){
     
 
     return (
-        <>
-            <IonRow id={ id } >
-                <IonCol size='12'>
-                    <IonItem lines="none" color="light">
-                        <IonIcon icon={school} slot="start"/>
-                        <IonLabel>
-                            <h2>
-                            { languageReducer == "ES" ? "Formación" : "Formation" }
-                            </h2>
-                        </IonLabel>
-                    </IonItem>
-                </IonCol>
-            </IonRow>
+        <IonRow className="ion-justify-content-end">
+            <IonCol size="12" sizeMd="9">
 
-            <IonRow >
+                <IonRow id={ id } >
+                    <IonCol size='12'>
+                        <IonItem lines="none" color="light">
+                            <IonIcon icon={school} slot="start"/>
+                            <IonLabel>
+                                <h2>
+                                { languageReducer == "ES" ? "Formación" : "Formation" }
+                                </h2>
+                            </IonLabel>
+                        </IonItem>
+                    </IonCol>
+                </IonRow>
 
-                <IonCol size='12' >
+                <IonRow >
 
-                    {
-                        formationArray.map( ( item, index ) => {
+                    <IonCol size='12' >
 
-                            return(
-                                <IonCard key={index}>
+                        {
+                            formationArray.map( ( item, index ) => {
 
-                                    <IonCardContent>
+                                return(
+                                    <IonCard key={index}>
 
-                                        <IonItem lines="none">
-                                            <IonIcon icon={library} slot="start" />
-                                            <IonLabel className="ion-text-wrap">
+                                        <IonCardContent>
 
-                                                <h2>
-                                                    <IonText>
-                                                        { item.title }
-                                                    </IonText>
-                                                    <IonText color="primary">
-                                                        <b> { item.school }</b>
-                                                    </IonText>
-                                                </h2>
+                                            <IonItem lines="none">
+                                                <IonIcon icon={library} slot="start" />
+                                                <IonLabel className="ion-text-wrap">
 
-                                                <p>
-                                                    <IonIcon icon={calendarClear} /> { item.duration }
-                                                </p>
+                                                    <h2>
+                                                        <IonText>
+                                                            { item.title }
+                                                        </IonText>
+                                                        <IonText color="primary">
+                                                            <b> { item.school }</b>
+                                                        </IonText>
+                                                    </h2>
 
-                                                <p>
-                                                    <IonIcon icon={location} /> { item.place }
-                                                </p>                                                
+                                                    <p>
+                                                        <IonIcon icon={calendarClear} /> { item.duration }
+                                                    </p>
 
-                                            </IonLabel>
+                                                    <p>
+                                                        <IonIcon icon={location} /> { item.place }
+                                                    </p>                                                
 
-                                            <IonThumbnail slot="end">
-                                                <img alt="Silhouette of mountains" src={ item.image } />
-                                            </IonThumbnail>
+                                                </IonLabel>
 
-                                        </IonItem>
-                                        
-                                    </IonCardContent>
+                                                <IonThumbnail slot="end">
+                                                    <img alt="Silhouette of mountains" src={ item.image } />
+                                                </IonThumbnail>
 
-                                </IonCard>
-                            );
+                                            </IonItem>
+                                            
+                                        </IonCardContent>
 
-                        })
-                    }
+                                    </IonCard>
+                                );
 
-                </IonCol>
-                
-            </IonRow>
-        </>
+                            })
+                        }
+
+                    </IonCol>
+                    
+                </IonRow>
+
+            </IonCol>
+
+        </IonRow>
     );
 }

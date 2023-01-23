@@ -1,0 +1,11 @@
+.profile_container{
+    background-color: var(--ion-color-light-shade);
+}
+.image-head-text {
+    position: relative;
+ }
+ .text-on-image {
+   position: absolute;
+  top: 5%;
+  /*left: 16px;*/
+ }

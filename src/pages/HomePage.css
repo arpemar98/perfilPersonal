@@ -1,3 +1,11 @@
 ion-split-pane {
     --side-max-width: 300px;
 }
+
+.wallpaper_container{   
+    --background: none;
+    background-image: url('/public/assets/images/personal/wallpaper.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

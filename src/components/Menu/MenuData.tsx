@@ -2,14 +2,14 @@ import { analytics, archiveOutline, archiveSharp, bookmarkOutline, call, extensi
 
 export function getProfileImg(){
 
-  return "https://ionicframework.com/docs/img/demos/avatar.svg"
+  return "assets/images/personal/profile.jpg";
 
 };
 
 
 
 export function getProfileName(){
-  return "Nombre persona"
+  return "Josué Aristeo Pérez Martínez"
 }
 
 
@@ -18,16 +18,19 @@ export function getProfileLinksArray(){
 
   return [
     {
+      label : "Linkedin",
       icon  : logoLinkedin,
-      url   : ""
+      url   : "https://mx.linkedin.com/in/arpemar98"
     },
     {
+      label : "Stackoverflow",
       icon  : logoStackoverflow,
-      url   : ""
+      url   : "https://stackoverflow.com/users/14267634/arpemar98"
     },
     {
+      label : "GitHub",
       icon  : logoGithub,
-      url   : ""
+      url   : "https://github.com/arpemar98"
     },
     
   ];

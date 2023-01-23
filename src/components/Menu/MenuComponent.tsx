@@ -79,7 +79,11 @@ const MenuComponent = ({ contentId="" }) => {
         </div>
 
         <IonItem className='ion-text-center' color="light" lines="none">
-          <IonLabel>{nombrePerfil}</IonLabel>
+          <IonLabel className='ion-text-wrap ion-text-center'>
+            <IonText>
+              <b>{nombrePerfil}</b>
+            </IonText>
+          </IonLabel>
         </IonItem>
 
         <div className='ion-text-center'>
@@ -87,7 +91,7 @@ const MenuComponent = ({ contentId="" }) => {
             linksArray.map( (item, index) => {
               
               return (
-                <IonChip key={index} color="primary" outline onClick={ () => window.open( item.url , '_blank', 'noopener,noreferrer' ) }>
+                <IonChip key={index} color="primary" outline onClick={ () => window.open( item.url , '_blank', 'noopener,noreferrer' ) } title={ item.label }>
                   <IonIcon icon={item.icon} style={{  margin: "0px" }} />
                 </IonChip>
               );
