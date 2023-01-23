@@ -7,7 +7,7 @@ export function getExperienceArray( language:string ){
             title       : ( language == "ES" )? ( 'Programador Web en' ): ('Web Programmer at'),
             place       : "Abastecedora de Insumos para la Salud SA de CV",
             location    : "Zapopan, Jalisco, México",
-            duration    : ( language == "ES" )? "Junio 2022 - Actualmente" : "June 2013 - Currently",
+            duration    : ( language == "ES" )? "Junio 2022 - Actualmente" : "June 2022 - Currently",
     
             description : ( language == "ES" )?( 
                             'Implementar nuevas tecnologías y mejorar las paginas referentes al sector de salud.'
@@ -16,16 +16,69 @@ export function getExperienceArray( language:string ){
                         ),
     
             url         : "http://abisalud.com/",
-            
-            contacts    : [
+                
+            tools       : [
                 {
-                    name        : "Marlene Duran",
-                    position    : ( language == "ES" )? "Directora de Tecnologías de la Información" : "Information Technology Director",
-                    mail        : "virginia.esquivel@jalisco.gob.mx",
-                }
-            ],
-    
-            tools       : []
+                    label   : "Html",
+                    color   : "#E44D26"
+                },
+                {
+                    label   : "CSS",
+                    color   : "#264DE4"
+                },
+                {
+                    label   : "Javascript",
+                    color   : "#F7E018"
+                },
+                {
+                    label   : "Laravel",
+                    color   : "#FE524E"
+                },
+                {
+                    label   : "php",
+                    color   : "#787CB4"
+                },
+                {
+                    label   : "jQuery",
+                    color   : "#0868AB"
+                },
+                {
+                    label   : "Ajax",
+                    color   : "#0074C9"
+                },
+                {
+                    label   : "Bootstrap",
+                    color   : "#5A3779"
+                },
+                {
+                    label   : "Docker",
+                    color   : "#2496ED"
+                },
+                {
+                    label   : "React",
+                    color   : "#61DBFB"
+                },
+                {
+                    label   : "Ionic",
+                    color   : "#3581FF"
+                },
+                {
+                    label   : "GitLab",
+                    color   : "#E24329"
+                },
+                {
+                    label   : "PostgreSQL",
+                    color   : "#2F6792"
+                },
+
+                
+
+                
+
+                
+                
+                
+            ]
         },
         {
             title       : ( language == "ES" )?( 'Desarrollador Web Full Stack en' ): ('Web Full Stack developer at'),
@@ -40,16 +93,7 @@ export function getExperienceArray( language:string ){
                         ),
     
             url         : "https://infejal.jalisco.gob.mx/",
-    
-            contacts    : [
-                {
-                    name        : "Virginia Leonila Esquivel Garduño",
-                    position    : ( language == "ES" )? "Directora de Tecnologías de la Información" : "Information Technology Director",
-                    mail        : "virginia.esquivel@jalisco.gob.mx",
-                    phone       : "01 (33) 3819-5220 EXT. 47181"
-                }
-            ],
-    
+        
             tools       : [
                 {
                     label   : "Html",
@@ -92,7 +136,7 @@ export function getExperienceArray( language:string ){
                     color   : "#E7322A"
                 },
                 {
-                    label   : "MyServer",
+                    label   : "MySQL",
                     color   : "#00618A"
                 },
                 {

@@ -73,7 +73,7 @@ const MenuComponent = ({ contentId="" }) => {
       <IonContent color="light">
 
         <div>
-          <IonAvatar style={{ margin: "auto", width: "64px", height: "64px" }}>
+          <IonAvatar style={{ margin: "auto", width: "128px", height: "128px" }}>
             <img alt="Silhouette of a person's head" src={imagenPerfil} />
           </IonAvatar>
         </div>

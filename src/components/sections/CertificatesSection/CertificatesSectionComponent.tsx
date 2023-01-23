@@ -1,4 +1,4 @@
-import { IonCard, IonCardContent, IonCol, IonIcon, IonImg, IonItem, IonLabel, IonNote, IonRow, IonThumbnail, IonTitle } from "@ionic/react";
+import { IonCard, IonCardContent, IonChip, IonCol, IonIcon, IonImg, IonItem, IonLabel, IonNote, IonRow, IonThumbnail, IonTitle } from "@ionic/react";
 import { person, ribbon } from "ionicons/icons";
 import { useSelector, useDispatch } from 'react-redux'
 import { getCertificatesArray } from "./CertificatesSectionData";
@@ -41,14 +41,24 @@ export default function CertificatesSectionComponent({ id = ""}){
                                         <IonCardContent>
                                             
                                             <div>
-                                                <IonThumbnail style={{ margin: "auto" }} >
-                                                    <img src={ item.image } />
-                                                </IonThumbnail>
+                                                <img src={ item.image } />
                                             </div>
 
-                                            <div className="ion-text-center">
+                                            <div>
                                                 <IonNote>{ item.label }</IonNote>
                                             </div>
+
+                                            { 
+                                                item.url? (
+                                                    
+                                                    <div className="ion-text-center"  >
+                                                        <IonChip color="success" onClick={ () => { window.open( item.url , '_blank', 'noopener,noreferrer' ) } }>
+                                                            Ver online
+                                                        </IonChip>
+                                                    </div>
+                                                    
+                                                ) : null
+                                            }
                                             
                                         </IonCardContent>
 
