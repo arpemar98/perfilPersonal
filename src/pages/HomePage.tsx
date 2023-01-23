@@ -1,5 +1,6 @@
 import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCol, IonContent, IonFab, IonFabButton, IonFabList, IonGrid, IonHeader, IonIcon, IonMenuButton, IonPage, IonRow, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
 import { add, globe } from 'ionicons/icons';
+import { useState } from 'react';
 import { useParams } from 'react-router';
 import FavComponent from '../components/Fav/FavLanguageComponent';
 import HeaderComponent from '../components/HeaderComponent';
@@ -17,7 +18,10 @@ import './HomePage.css';
 
 const HomePage: React.FC = () => {
 
+  const [ mostrarLoading, setMostrarLoading ] = useState( true );
+
   return (
+
     <IonSplitPane contentId='main-content' >
 
       <MenuComponent contentId="main-content" />
@@ -29,8 +33,6 @@ const HomePage: React.FC = () => {
         <IonContent className="wallpaper_container">
 
             <ProfileSectionComponent id="section_profile" />
-
-
 
             <FormationSectionComponent id="section_formation"/>
 

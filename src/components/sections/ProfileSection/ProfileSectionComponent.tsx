@@ -4,8 +4,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getProfileImage, getGreetingImage, getGreetingText, getPrimaryImage, getPrimaryText, getSecondaryImage, getSecondaryText } from "./ProfileSectionData";
 
 import "./ProfileSection.css";
+import { useInsertionEffect, useLayoutEffect, useRef, useState } from "react";
 
 export default function ProfileSectionComponent({ id=""}){
+
+    const refPrimary = useRef(null);
+
+    const [widthPrimary, setWidthPrimary]   = useState(0);
+    const [heightPrimary, setHeightPrimary] = useState(0);
 
     const languageReducer:string    = useSelector( ( state:any ) => { return state.languageRedux} );            // Reducer de idioma
 
@@ -20,43 +26,52 @@ export default function ProfileSectionComponent({ id=""}){
     const secondaryImage    = getSecondaryImage();
     const secondaryText     = getSecondaryText( languageReducer );
 
+    useLayoutEffect(() => {
+
+        if( refPrimary != null ){
+            setWidthPrimary( refPrimary?.current?.offsetWidth );
+            setHeightPrimary( refPrimary.current.offsetHeight );
+        }
+        
+
+      }, []);
+
     return (
         <div className="profile_container">
 
-            <IonRow id={ id } >
-                <IonCol size='12'>
-                    <IonItem lines="none" color="light">
-                        <IonIcon icon={person} slot="start"/>
-                        <IonLabel>
-                            <h1>
-                                <b>{ languageReducer == "ES" ? "Perfil" : "Profile" }</b>
-                            </h1>
-                        </IonLabel>
-                    </IonItem>
-                </IonCol>
-            </IonRow>
+            <div id={ id } >
+                <IonItem lines="none" color="light">
+                    <IonIcon icon={person} slot="start"/>
+                    <IonLabel>
+                        <h1>
+                            <b>{ languageReducer == "ES" ? "Perfil" : "Profile" }</b>
+                        </h1>
+                    </IonLabel>
+                </IonItem>
+            </div>
 
-            <IonRow >
 
-                <IonCol size='12'>
 
-                    <div className="image-head-text">
+            <div className="image-head-text">
                             
-                        <img src={greetingImage} style={{ width: "100%" }}/>
+                <img src={greetingImage} style={{ width: "100%" }}/>
 
-                        <div className="text-on-image" style={{ width: "100%" }}>
+                <div className="text-on-image" style={{ width: "100%" }}>
 
-                            <div className="ion-justify-content-center">
+                    <div className="ion-justify-content-center">
 
-                                <div>
-                                  <IonAvatar style={{ margin: "auto", width: "256px", height: "256px" }}>
-                                    <img alt="Silhouette of a person's head" src={imagenPerfil} />
-                                  </IonAvatar>
-                                </div>
+                        <div>
+                            <IonAvatar style={{ margin: "auto", width: "25%", height: "25%" }}>
+                            <img alt="Silhouette of a person's head" src={imagenPerfil} />
+                            </IonAvatar>
+                        </div>
 
-                                <br/>
+                        <br/>
 
-                                <IonCard style={{ opacity: "0.7", width: "50%", margin: "auto" }}>
+                        <IonRow className="ion-justify-content-center">
+                            <IonCol size="12" sizeMd="8">
+
+                                <IonCard style={{ opacity: "0.7" }}>
                                     <IonCardContent className="ion-text-center">
 
                                         <IonText color="dark" style={{ fontSize: "50px" }} >
@@ -66,55 +81,60 @@ export default function ProfileSectionComponent({ id=""}){
                                     </IonCardContent>
                                 </IonCard>
 
-                            </div>
-
-                        </div>
+                            </IonCol>
+                        </IonRow>
 
                     </div>
 
-                    <div className="image-head-text">
+                </div>
+
+            </div>
+
+
+
+            <div className="image-head-text" ref={refPrimary}>
+                
+                <img src={primaryImage} />
+
+                <div className="text-on-image" >
+
+                    <IonRow className="ion-align-items-center" style={{ border: "solid 1px red", height: "calc( 100% -10px)" }}>
+
+                        <IonCol size="12" sizeSm="8" sizeLg="6" >
+                            <IonCard style={{ opacity: "0.9" }}>
+                                <IonCardContent className="ion-text-justify">
+                                    <IonText style={{ fontSize: "18px" }} color="dark">{ primaryText }</IonText>
+                                </IonCardContent>
+                            </IonCard>
+                        </IonCol>
+
+                    </IonRow>
+
+                </div>
+
+            </div>
+
+
+
+            <div className="image-head-text">
                         
-                        <img src={primaryImage} />
+                <img src={secondaryImage} />
 
-                        <div className="text-on-image">
+                <div className="text-on-image" >
 
-                            <IonRow>
-                                <IonCol size="12" sizeMd="8" >
-                                    <IonCard style={{ opacity: "0.9" }}>
-                                        <IonCardContent>
-                                            <IonText style={{ fontSize: "18px" }} color="dark">{ primaryText }</IonText>
-                                        </IonCardContent>
-                                    </IonCard>
-                                </IonCol>
-                            </IonRow>
+                    <IonRow>
+                        <IonCol size="12" sizeMd="5" >
+                            <IonCard style={{ opacity: "0.9" }}>
+                                <IonCardContent>
+                                    <IonText style={{ fontSize: "18px" }} color="dark">{ secondaryText }</IonText>
+                                </IonCardContent>
+                            </IonCard>
+                        </IonCol>
+                    </IonRow>
 
-                        </div>
+                </div>
 
-                    </div>
-
-                    <div className="image-head-text">
-                        
-                        <img src={secondaryImage} />
-
-                        <div className="text-on-image">
-
-                            <IonRow>
-                                <IonCol size="12" sizeMd="5" >
-                                    <IonCard style={{ opacity: "0.9" }}>
-                                        <IonCardContent>
-                                            <IonText style={{ fontSize: "18px" }} color="dark">{ secondaryText }</IonText>
-                                        </IonCardContent>
-                                    </IonCard>
-                                </IonCol>
-                            </IonRow>
-
-                        </div>
-
-                    </div>
-
-                </IonCol>
-
-            </IonRow>
+            </div>
 
         </div>
     );
