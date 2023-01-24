@@ -1,5 +1,5 @@
-import { IonCard, IonCardContent, IonCol, IonIcon, IonImg, IonItem, IonLabel, IonRow, IonTitle } from "@ionic/react";
-import { call, logoWhatsapp, mailOutline, person } from "ionicons/icons";
+import { IonButton, IonCard, IonCardContent, IonCol, IonIcon, IonImg, IonItem, IonLabel, IonRow, IonTitle, isPlatform } from "@ionic/react";
+import { arrowRedo, call, logoWhatsapp, mailOutline, person } from "ionicons/icons";
 import { useSelector, useDispatch } from 'react-redux'
 import { getMail, getPhoneNumber } from "./ContactSectionData";
 
@@ -36,20 +36,38 @@ export default function ContactSectionComponent({ id = "" }){
 
                             <IonCardContent>
                                 
-                                <IonItem lines="none" button>
+                                <IonItem lines="none" >
                                     <IonIcon icon={mailOutline} slot="start" />
-                                    <IonLabel>
+                                    <IonLabel className="ion-text-wrap">
                                         <h1>{ languageReducer == "ES"? "Correo" : "Mail" }</h1>
                                         <p>{mail}</p>
                                     </IonLabel>
+
+                                    {
+                                        isPlatform("mobile")? (
+                                            <IonButton size="default" slot="end" href={ "mailto:" + mail } color="secondary" >
+                                                <IonIcon icon={arrowRedo} />
+                                            </IonButton>
+                                        ) : null
+                                    }
+
                                 </IonItem>
 
-                                <IonItem lines="none" button>
+                                <IonItem lines="none" >
                                     <IonIcon icon={logoWhatsapp} slot="start" />
-                                    <IonLabel>
+                                    <IonLabel className="ion-text-wrap">
                                         <h1>{ languageReducer == "ES"? "Número telefónico" : "Phone Number" }</h1>
                                         <p>{phoneNumber}</p>
                                     </IonLabel>
+
+                                    {
+                                        isPlatform("mobile")? (
+                                            <IonButton size="default" slot="end" href={ "tel:" + phoneNumber } color="secondary" >
+                                                <IonIcon icon={arrowRedo} />
+                                            </IonButton>
+                                        ) : null
+                                    }
+
                                 </IonItem>
 
                             </IonCardContent>

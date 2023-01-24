@@ -5,11 +5,9 @@ import { getSkillsArray } from "./SkillsSectionData";
 
 export default function SkillsSectionComponent({ id = ""}){
 
-    const languageReducer:string    = useSelector( ( state:any ) => { return state.languageRedux} );            // Reducer de idioma
+    const languageReducer:string = useSelector( ( state:any ) => { return state.languageRedux} );            // Reducer de idioma
 
-    const formationArray = getSkillsArray( languageReducer );
-
-    
+    const formationArray = getSkillsArray( languageReducer ).sort( ( a, b ) => ( a.label > b.label )? 1 : -1 );
 
     return (
         <IonRow className="ion-justify-content-end">
@@ -48,8 +46,8 @@ export default function SkillsSectionComponent({ id = ""}){
                                                 </IonThumbnail>
                                             </div>
 
-                                            <div className="ion-text-center">
-                                                <IonNote>{ item.label }</IonNote>
+                                            <div className="ion-text-wrap ion-text-center">
+                                            <IonNote>{ item.label }</IonNote>
                                             </div>
                                             
                                         </IonCardContent>

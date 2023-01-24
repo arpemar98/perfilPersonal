@@ -1,22 +1,36 @@
-import { IonContent, IonItem, IonLabel, IonModal } from "@ionic/react";
+import { IonButton, IonButtons, IonContent, IonHeader, IonItem, IonLabel, IonModal, IonToolbar,IonPage, IonImg, IonChip, IonIcon } from "@ionic/react";
+import { close } from "ionicons/icons";
+import { useSelector, useDispatch } from 'react-redux'
+import { useParams } from "react-router";
 
-export default function ModalImagenComponent( modal:any, imagen:string ){
+export default function ModalImagenComponent( param:any ){
 
-    return (
-        <IonModal isOpen={modal} >
+  const languageReducer:string = useSelector( ( state:any ) => { return state.languageRedux} );            // Reducer de idioma
+  
+  return (
+      <IonPage>
+        
+        <IonHeader>
+          <IonToolbar>
 
-          <IonContent>
+            <IonButtons slot="end">
 
-            <p className="ion-padding-horizontal">You must accept the terms and conditions to close this modal.</p>
+              <IonChip color="dark" onClick={() => param.dismissFuncion() } outline >
+                { languageReducer == "ES"? "Cerrar" : "Close" }
+                <IonIcon icon={close}/>
+              </IonChip>
 
-            <IonItem>
-              <IonLabel className="ion-text-wrap" >
-                Do you accept the terms and conditions?
-              </IonLabel>
-            </IonItem>
+            </IonButtons>
+          
+          </IonToolbar>
+        </IonHeader>
 
-          </IonContent>
+        <IonContent>
 
-        </IonModal>
-    );
+          <IonImg src={param.image} />
+
+        </IonContent>
+
+      </IonPage>
+  );
 }

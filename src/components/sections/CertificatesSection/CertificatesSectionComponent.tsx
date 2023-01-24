@@ -1,21 +1,30 @@
-import { IonCard, IonCardContent, IonChip, IonCol, IonIcon, IonImg, IonItem, IonLabel, IonNote, IonRippleEffect, IonRow, IonThumbnail, IonTitle } from "@ionic/react";
+import { IonCard, IonCardContent, IonChip, IonCol, IonIcon, IonImg, IonItem, IonLabel, IonNote, IonRippleEffect, IonRow, IonThumbnail, IonTitle, useIonModal } from "@ionic/react";
 import { person, ribbon } from "ionicons/icons";
 import { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import ModalImagenComponent from "../../Modals/modalImagenComponent";
+import ModalImagenComponent from "../../Modals/ModalImagenComponent";
 import { getCertificatesArray } from "./CertificatesSectionData";
+
+import "./CertificatesSection.css";
 
 export default function CertificatesSectionComponent({ id = ""}){
 
     const languageReducer:string    = useSelector( ( state:any ) => { return state.languageRedux} );            // Reducer de idioma
 
+    const [imageSelected, setImageSelected]    = useState("");
+
+    const [ presentModal, dismissModal ] = useIonModal( ModalImagenComponent, {
+        image : imageSelected,
+        dismissFuncion: () => dismissModal(),
+    } );
+
     const formationArray = getCertificatesArray( languageReducer );
 
-    const [ mostrarModal, setMostrarImagen ] = useState( false );
-
     function verModalImagen( imagen:string ){
-
-        setMostrarImagen( true );
+        
+        setImageSelected( imagen );
+        
+        presentModal(  );
 
     }
 
@@ -65,7 +74,7 @@ export default function CertificatesSectionComponent({ id = ""}){
                                                         
                                                         <div className="ion-text-center"  >
                                                             <IonChip color="success" onClick={ () => { window.open( item.url , '_blank', 'noopener,noreferrer' ) } }>
-                                                                Ver online
+                                                            { languageReducer == "ES"? "Ver online" : "See online" }
                                                             </IonChip>
                                                         </div>
                                                         
@@ -87,7 +96,6 @@ export default function CertificatesSectionComponent({ id = ""}){
 
             </IonRow>
 
-            <ModalImagenComponent image="" modal={ mostrarModal } />
         </>
     );
 }

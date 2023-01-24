@@ -33,10 +33,6 @@ export function getSkillsArray( language:string ){
             label       : "Jquery",
             image       : "assets/images/skills_icons/jquery.png"
         },
-        // {
-        //     label       : "Ajax",
-        //     image       : "assets/images/skills_icons/ajax.png"
-        // },
         {
             label       : "TypeScript",
             image       : "assets/images/skills_icons/typescript.png"
@@ -80,6 +76,10 @@ export function getSkillsArray( language:string ){
         {
             label       : "Postgre SQL",
             image       : "assets/images/skills_icons/postgresql.png"
+        },
+        {
+            label       : "Ajax",
+            image       : "assets/images/skills_icons/ajax.png"
         }
         
     ];

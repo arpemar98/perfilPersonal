@@ -55,7 +55,7 @@ const HomePage: React.FC = () => {
 
             <ContactSectionComponent id='section_contact'/>
 
-          <FavComponent/>        
+            <FavComponent/>        
 
         </IonContent>
 
