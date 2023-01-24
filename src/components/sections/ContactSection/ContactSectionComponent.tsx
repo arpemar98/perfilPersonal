@@ -36,7 +36,7 @@ export default function ContactSectionComponent({ id = "" }){
 
                             <IonCardContent>
                                 
-                                <IonItem>
+                                <IonItem lines="none" button>
                                     <IonIcon icon={mailOutline} slot="start" />
                                     <IonLabel>
                                         <h1>{ languageReducer == "ES"? "Correo" : "Mail" }</h1>
@@ -44,7 +44,7 @@ export default function ContactSectionComponent({ id = "" }){
                                     </IonLabel>
                                 </IonItem>
 
-                                <IonItem>
+                                <IonItem lines="none" button>
                                     <IonIcon icon={logoWhatsapp} slot="start" />
                                     <IonLabel>
                                         <h1>{ languageReducer == "ES"? "Número telefónico" : "Phone Number" }</h1>

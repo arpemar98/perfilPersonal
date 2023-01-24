@@ -41,9 +41,9 @@ export function getSectionsArray( language:string ){
   
   return [
     {
-      label : ( language == 'ES' )? 'Perfil' : 'Profile',
+      label : ( language == 'ES' )? 'Inicio' : 'Home',
       id    : 'section_profile',
-      icon  : person,
+      icon  : home,
     },
     {
       label : ( language == 'ES' )? 'Formación' : 'Formation',

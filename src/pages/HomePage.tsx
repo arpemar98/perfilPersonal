@@ -1,5 +1,5 @@
-import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCol, IonContent, IonFab, IonFabButton, IonFabList, IonGrid, IonHeader, IonIcon, IonMenuButton, IonPage, IonRow, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
-import { add, globe } from 'ionicons/icons';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCol, IonContent, IonFab, IonFabButton, IonFabList, IonGrid, IonHeader, IonIcon, IonMenuButton, IonMenuToggle, IonPage, IonRow, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
+import { add, chevronForwardCircle, globe, menu } from 'ionicons/icons';
 import { useState } from 'react';
 import { useParams } from 'react-router';
 import FavComponent from '../components/Fav/FavLanguageComponent';
@@ -21,16 +21,27 @@ const HomePage: React.FC = () => {
   const [ mostrarLoading, setMostrarLoading ] = useState( true );
 
   return (
-
+<>
     <IonSplitPane contentId='main-content' >
 
       <MenuComponent contentId="main-content" />
 
       <IonPage id="main-content">
 
-        <HeaderComponent/>
+        <IonContent className="wallpaper_container">            
 
-        <IonContent className="wallpaper_container">
+            <IonFab slot="fixed" vertical="top" horizontal="start">
+
+              <IonMenuToggle>
+
+                <IonFabButton color="light" >
+                  <IonIcon icon={menu}></IonIcon>
+                </IonFabButton>
+
+              </IonMenuToggle>
+
+            </IonFab>
+            
 
             <ProfileSectionComponent id="section_profile" />
 
@@ -51,6 +62,8 @@ const HomePage: React.FC = () => {
       </IonPage>
       
     </IonSplitPane>
+
+    </>
   );
 };
 

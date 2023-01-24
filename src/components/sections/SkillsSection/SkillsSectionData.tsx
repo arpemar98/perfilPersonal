@@ -78,7 +78,7 @@ export function getSkillsArray( language:string ){
             image       : "assets/images/skills_icons/mysql.png"
         },
         {
-            label       : "PostgreSQL",
+            label       : "Postgre SQL",
             image       : "assets/images/skills_icons/postgresql.png"
         }
         
