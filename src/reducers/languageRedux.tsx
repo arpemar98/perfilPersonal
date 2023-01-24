@@ -4,9 +4,9 @@ const cookies = new Cookies();                                                  
 
 const nombreCookie      = "profile_AristeoPerezMartinez_language";
 
-const cookieIdUsuario   = cookies.get( nombreCookie );
+const cookieLanguage   = cookies.get( nombreCookie );
 
-const estadoInicial = ( cookieIdUsuario && cookieIdUsuario == "EN"  )? "EN" : "ES";          // ES|EN
+const estadoInicial     = ( cookieLanguage? ( cookieLanguage == "EN"? "EN" : "ES" ) : "EN" );       // ES|EN (default EN)
 
 const languageRedux = ( state = estadoInicial, action : { type : string, payload? : any } ) => {
 

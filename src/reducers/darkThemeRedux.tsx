@@ -4,9 +4,9 @@ const cookies = new Cookies();                                                  
 
 const nombreCookie      = "profile_AristeoPerezMartinez_dark_theme";
 
-const cookieIdUsuario   = cookies.get( nombreCookie );
+const cookieTheme   = cookies.get( nombreCookie );
 
-const estadoInicial = ( cookieIdUsuario && cookieIdUsuario == "true")? true : false;
+const estadoInicial = ( cookieTheme? ( cookieTheme == "true"? true : false ) : true );      // Recuperar ( default TRUE)
 
 const darkThemeRedux = ( state = estadoInicial, action : { type : string, payload? : any } ) => {
 

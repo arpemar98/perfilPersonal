@@ -6,7 +6,7 @@ import { getProfileImage, getGreetingImage, getGreetingText, getPrimaryImage, ge
 import "./ProfileSection.css";
 import { useInsertionEffect, useLayoutEffect, useRef, useState } from "react";
 
-export default function ProfileSectionComponent({ id=""}){
+export default function ProfileSectionComponent({ id="" }){
 
     const languageReducer:string    = useSelector( ( state:any ) => { return state.languageRedux} );            // Reducer de idioma
 

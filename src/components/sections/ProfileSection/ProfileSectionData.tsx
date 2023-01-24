@@ -30,9 +30,9 @@ export function getGreetingText( language:string ){
 export function getPrimaryText( language:string ){
 
     if( language == "ES" ){
-        return 'Soy Ingeniero Informático de la Universidad de Guadalajara en Guadalajara, Jalisco, México. Con experiencia en desarrollo web con frameworks como Laravel, React (con Ionic), Angular (con Ionic), JavaScript, PHP, CSS, jQuery, Ajax, Bootstrap, control de versiones Git, conocimiento de bases de datos como MySQL, SQL Server y Postgres.';
+        return 'Soy Ingeniero en Informática de la Universidad de Guadalajara del estado de Jalisco, México. Con experiencia en desarrollo web con frameworks como Laravel, React (con Ionic), Angular (con Ionic), JavaScript, PHP, CSS, jQuery, Ajax, Bootstrap, control de versiones Git, conocimiento de bases de datos como MySQL, SQL Server y Postgres.';
     }else{
-        return 'I’m an Informatic Engineer from the University of Guadalajara in Guadalajara, Jalisco, Mexico. With experience in web development with Laravel, React (with Ionic), Angular (with Ionic), JavaScript, PHP, CSS, jQuery, Ajax, Bootstrap, Git, knowledge of databases such as MySQL, SQL Server and Postgres.';
+        return 'I’m an Informatic Engineer from the Universidad de Guadalajara from the state of Jalisco, Mexico. With experience in web development with Laravel, React (with Ionic), Angular (with Ionic), JavaScript, PHP, CSS, jQuery, Ajax, Bootstrap, Git, knowledge of databases such as MySQL, SQL Server and Postgres.';
     }    
 }
 
