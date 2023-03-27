@@ -4,8 +4,8 @@ export function getExperienceArray( language:string ){
 
     return [
         {
-            title       : ( language == "ES" )? ( 'Programador Web en' ): ('Web Programmer at'),
-            place       : "Abastecedora de Insumos para la Salud SA de CV",
+            title       : ( language == "ES" )? ( 'Programador en' ): ('Programmer at'),
+            place       : "Global Asiatica SA de CV",
             location    : "Zapopan, Jalisco, México",
             duration    : ( language == "ES" )? "Junio 2022 - Actualmente" : "June 2022 - Currently",
     
@@ -81,7 +81,7 @@ export function getExperienceArray( language:string ){
             ]
         },
         {
-            title       : ( language == "ES" )?( 'Desarrollador Web Full Stack en' ): ('Web Full Stack developer at'),
+            title       : ( language == "ES" )?( 'Desarrollador Full Stack en' ): ('Full Stack developer at'),
             place       : "Instituto de la Infraestructura Física Educativa del Estado de Jalisco (INFEJAL)",
             location    : "Guadalajara, Jalisco, México",
             duration    : ( language == "ES" )? "Febrero 2021 - Junio 2022" : "February 2021 - June 2022",
