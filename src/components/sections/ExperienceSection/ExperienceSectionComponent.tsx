@@ -63,14 +63,20 @@ export default function ExperienceSectionComponent({ id = ""}){
 
                                                     <p>{ item.description }</p>
 
-                                                    <div>
-                                                        <IonChip color="secondary" outline onClick={ () => window.open( item.url , '_blank', 'noopener,noreferrer' ) }>
-                                                            <IonIcon icon={globe} /> 
-                                                            <IonLabel>
-                                                                { languageReducer == "ES" ? "Ver sitio" : "Website" }
-                                                            </IonLabel>
-                                                        </IonChip>
-                                                    </div>
+                                                    {
+                                                        ( item.url )? (
+                                                            <div>
+                                                                <IonChip color="secondary" outline onClick={ () => window.open( item.url , '_blank', 'noopener,noreferrer' ) }>
+                                                                    <IonIcon icon={globe} /> 
+                                                                    <IonLabel>
+                                                                        { languageReducer == "ES" ? "Ver sitio" : "Website" }
+                                                                    </IonLabel>
+                                                                </IonChip>
+                                                            </div>    
+                                                        ) : null
+                                                    }
+
+                                                    
 
                                                     <br/>
 

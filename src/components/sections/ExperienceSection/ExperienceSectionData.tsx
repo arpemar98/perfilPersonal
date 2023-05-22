@@ -15,7 +15,6 @@ export function getExperienceArray( language:string ){
                             'Implement new technologies and improve pages about medical sector.'
                         ),
     
-            url         : "http://abisalud.com/",
                 
             tools       : [
                 {
