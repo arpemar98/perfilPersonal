@@ -6,6 +6,6 @@ export function getMail(){
 
 export function getPhoneNumber(){
 
-    return "(+52) 971 100 0807";
+    return "(+52) 33 1007 1965";
   
 };

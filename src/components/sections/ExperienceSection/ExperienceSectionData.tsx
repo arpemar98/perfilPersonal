@@ -4,7 +4,7 @@ export function getExperienceArray( language:string ){
 
     return [
         {
-            title       : ( language == "ES" )? ( 'Programador en' ): ('Programmer at'),
+            title       : ( language == "ES" )? ( 'Desarrollador Web en' ): ('Web Developer at'),
             place       : "Global Asiatica SA de CV",
             location    : "Zapopan, Jalisco, México",
             duration    : ( language == "ES" )? "Junio 2022 - Actualmente" : "June 2022 - Currently",
